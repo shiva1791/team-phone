@@ -1,0 +1,100 @@
+body {
+    background-color: #222;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: white;
+}
+
+.phone-container {
+    background-color: #333;
+    width: 280px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    border: 1px solid #444;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+/* Status Indicator */
+#status-light {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 8px;
+    background-color: #555; /* Gray = Offline */
+}
+.status-ready { background-color: #4CAF50 !important; box-shadow: 0 0 5px #4CAF50; }
+.status-busy { background-color: #f44336 !important; }
+.status-error { background-color: #ff9800 !important; }
+
+/* Input Screen */
+.display-screen input {
+    width: 100%;
+    background: #222;
+    border: 1px solid #444;
+    color: #fff;
+    padding: 10px;
+    font-size: 1.2em;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+#call-timer {
+    text-align: center;
+    font-size: 0.8em;
+    color: #888;
+    margin-top: 5px;
+    height: 15px;
+}
+
+/* Keypad Grid */
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+.key {
+    background: #444;
+    border: none;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background 0.1s;
+}
+.key:active { background: #666; }
+
+/* Call Buttons */
+.actions {
+    display: flex;
+    gap: 10px;
+}
+.action-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.call { background-color: #4CAF50; color: white; }
+.call:active { background-color: #45a049; }
+.hangup { background-color: #f44336; color: white; opacity: 0.5; cursor: not-allowed; }
+.hangup:enabled { opacity: 1; cursor: pointer; }
+
+.controls { margin-top: 10px; text-align: center; }
+.control-btn { background: none; border: 1px solid #555; color: #aaa; padding: 5px 15px; border-radius: 15px; cursor: pointer; }
+.control-btn.active { background: #fff; color: #000; }

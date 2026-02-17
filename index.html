@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team WebPhone</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://sdk.twilio.com/js/voice/releases/2.4.1/twilio.min.js"></script>
+</head>
+<body>
+
+    <div class="phone-container">
+        <div class="header">
+            <h3>MicroSIP Web</h3>
+            <div id="status-light" class="status-offline"></div>
+            <span id="status-text">Offline</span>
+        </div>
+
+        <div class="display-screen">
+            <input type="text" id="phoneNumber" placeholder="Enter Number (+1...)" />
+            <div id="call-timer">00:00</div>
+        </div>
+
+        <div class="keypad">
+            <button class="key" onclick="addToScreen('1')">1</button>
+            <button class="key" onclick="addToScreen('2')">2</button>
+            <button class="key" onclick="addToScreen('3')">3</button>
+            <button class="key" onclick="addToScreen('4')">4</button>
+            <button class="key" onclick="addToScreen('5')">5</button>
+            <button class="key" onclick="addToScreen('6')">6</button>
+            <button class="key" onclick="addToScreen('7')">7</button>
+            <button class="key" onclick="addToScreen('8')">8</button>
+            <button class="key" onclick="addToScreen('9')">9</button>
+            <button class="key" onclick="addToScreen('*')">*</button>
+            <button class="key" onclick="addToScreen('0')">0</button>
+            <button class="key" onclick="addToScreen('#')">#</button>
+        </div>
+
+        <div class="actions">
+            <button id="btn-call" class="action-btn call">Call</button>
+            <button id="btn-hangup" class="action-btn hangup" disabled>End</button>
+        </div>
+        
+        <div class="controls">
+            <button id="btn-mute" class="control-btn" disabled>Mute</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
