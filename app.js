@@ -52,27 +52,37 @@ async function startupClient() {
 
 // 3. UI Interactions
 btnCall.addEventListener("click", async () => {
-    const params = { To: phoneNumberInput.value };
+    // Grab the values from the UI
+    const target = phoneNumberInput.value;
+    const sipUsername = document.getElementById("sipUser").value;
+    const sipPassword = document.getElementById("sipPass").value;
     
-    if (!params.To) {
-        alert("Please enter a phone number.");
+    if (!target) {
+        alert("Please enter a destination number or SIP URI.");
         return;
     }
 
-    updateStatus(`Calling ${params.To}...`, "busy");
+    updateStatus(`Calling...`, "busy");
     
-    // Connect the call
+    // Bundle the target and credentials into the parameters
+    const params = { 
+        To: target,
+        SipUser: sipUsername,
+        SipPass: sipPassword
+    };
+    
+    // Connect the call with the new parameters
     activeCall = await device.connect({ params: params });
 
     // Handle Call Events
     activeCall.on("accept", () => {
         updateStatus("In Call", "busy");
-        toggleButtons(true); // Enable Hangup, Disable Call
+        toggleButtons(true);
     });
 
     activeCall.on("disconnect", () => {
         updateStatus("Call Ended", "ready");
-        toggleButtons(false); // Enable Call, Disable Hangup
+        toggleButtons(false);
         activeCall = null;
     });
 });
@@ -112,4 +122,5 @@ function toggleButtons(isInCall) {
     
     btnCall.style.opacity = isInCall ? "0.5" : "1";
     btnHangup.style.opacity = isInCall ? "1" : "0.5";
+
 }
