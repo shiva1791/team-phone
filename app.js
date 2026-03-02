@@ -66,6 +66,7 @@ btnCall.addEventListener("click", async () => {
     
     // Bundle the target and credentials into the parameters
     const params = { 
+        From: 'shiva-qa.sip.twilio.com',
         To: target,
         SipUser: sipUsername,
         SipPass: sipPassword
@@ -124,3 +125,4 @@ function toggleButtons(isInCall) {
     btnHangup.style.opacity = isInCall ? "1" : "0.5";
 
 }
+
