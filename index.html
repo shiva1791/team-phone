@@ -20,7 +20,13 @@
         </div>
 
         <div class="display-screen">
-            <input type="text" id="phoneNumber" placeholder="Enter Number (+1...)" />
+            <input type="text" id="phoneNumber" placeholder="Enter Number or SIP..." />
+            
+            <div style="display: flex; gap: 5px; margin-top: 10px;">
+                <input type="text" id="sipUser" placeholder="SIP User (Optional)" style="flex: 1; background: #222; border: 1px solid #444; color: #fff; padding: 8px; border-radius: 4px; font-size: 0.9em;" />
+                <input type="password" id="sipPass" placeholder="SIP Password" style="flex: 1; background: #222; border: 1px solid #444; color: #fff; padding: 8px; border-radius: 4px; font-size: 0.9em;" />
+            </div>
+
             <div id="call-timer">00:00</div>
         </div>
 
@@ -52,4 +58,5 @@
     <script src="app.js"></script>
 </body>
 </html>
+
 
